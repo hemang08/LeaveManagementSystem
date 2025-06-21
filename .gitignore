@@ -1,0 +1,15 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/LeaveManagementSystem_API/.vs
+/LeaveManagementSystem_API/LeaveManagementSystem.API/bin/Debug/net9.0
+/LeaveManagementSystem_API/LeaveManagementSystem.API/obj
+/LeaveManagementSystem_API/LeaveManagementSystem.Common/bin/Debug/net9.0
+/LeaveManagementSystem_API/LeaveManagementSystem.Common/obj
+/LeaveManagementSystem_API/LeaveManagementSystem.Data/bin/Debug/net9.0
+/LeaveManagementSystem_API/LeaveManagementSystem.Data/obj
+/LeaveManagementSystem_API/LeaveManagementSystem.Model/bin/Debug/net9.0
+/LeaveManagementSystem_API/LeaveManagementSystem.Model/obj
+/LeaveManagementSystem_API/LeaveManagementSystem.Service/bin/Debug/net9.0
+/LeaveManagementSystem_API/LeaveManagementSystem.Service/obj

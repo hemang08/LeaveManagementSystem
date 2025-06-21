@@ -1,0 +1,73 @@
+.full-width {
+  width: 100%;
+}
+
+mat-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1rem 0;
+}
+
+.row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+mat-form-field {
+  flex: 1;
+  min-width: 220px;
+}
+
+mat-form-field.full-width {
+  width: 100%;
+}
+
+mat-dialog-actions {
+  padding-top: 1.5rem;
+}
+
+button[mat-button],
+button[mat-flat-button] {
+  min-width: 100px;
+}
+
+
+.form-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.form-field {
+  flex: 1 1 45%;
+  min-width: 200px;
+}
+
+::ng-deep .dropdown-panel {
+  z-index: 1001 !important;
+}
+
+::ng-deep .cdk-overlay-pane {
+  z-index: 1001 !important;
+}
+::ng-deep .cdk-overlay-pane:not(.mat-mdc-select-panel-above) div.mat-mdc-select-panel {
+    background: white;
+}
+
+
+mat-error{
+  margin-bottom: 10px;
+}
+
+::ng-deep {
+  .mat-calendar-content {
+      background-color: white;
+  }
+}
+.title{
+  font-size: 2rem;
+  font-weight: bolder;
+}

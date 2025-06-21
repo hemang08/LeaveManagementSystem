@@ -1,0 +1,77 @@
+<h2 mat-dialog-title class="title">{{leaveId>0?"Edit Leave":"Add Leave"}}</h2>
+<div class="p-10">
+<form [formGroup]="leaveForm" (ngSubmit)="submit()" mat-dialog-content >
+  <!-- Employee Name -->
+  <mat-form-field appearance="outline" class="full-width">
+    <mat-label>Employee Name</mat-label>
+    <input matInput formControlName="employeeName" required />
+    <mat-error *ngIf="submitted && leaveForm.get('employeeName')?.hasError('required')" class="text-danger">
+      Employee name is required.
+    </mat-error>
+    <mat-error *ngIf="submitted && leaveForm.get('employeeName')?.hasError('minlength') && !(leaveForm.get('employeeName')?.hasError('required'))" class="text-danger">
+      Minimum 3 characters required.
+    </mat-error>
+     <mat-error *ngIf="submitted && leaveForm.get('employeeName')?.hasError('maxlength') && !(leaveForm.get('employeeName')?.hasError('required')) " class="text-danger">
+      Maximum 128 characters allowed.
+    </mat-error>
+  </mat-form-field>
+
+  <!-- Leave Type & Status -->
+  <div class="form-row">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Leave Type</mat-label>
+      <mat-select formControlName="leaveType" required>
+        <mat-option *ngFor="let type of leaveTypes" [value]="type.leaveTypeId">{{ type.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="submitted && leaveForm.get('leaveType')?.hasError('required')" class="text-danger">
+        Leave type is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status" required>
+        <mat-option *ngFor="let s of statuses" [value]="s.leaveStatusId">{{ s.name }}</mat-option>
+      </mat-select>
+      <mat-error *ngIf="submitted && leaveForm.get('status')?.hasError('required')" class="text-danger">
+        Status is required.
+      </mat-error>
+    </mat-form-field>
+  </div>
+
+  <!-- From & To Dates -->
+  <div class="form-row">
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>From Date</mat-label>
+      <input matInput [matDatepicker]="picker1" formControlName="fromDate" readonly />
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+      <mat-error *ngIf="submitted && leaveForm.get('fromDate')?.hasError('required')" class="text-danger">
+        From date is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>To Date</mat-label>
+      <input matInput [matDatepicker]="picker2" formControlName="toDate" readonly />
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+      <mat-error *ngIf="submitted && leaveForm.get('toDate')?.hasError('required')" class="text-danger">
+        To date is required.
+      </mat-error>
+      <mat-error *ngIf="submitted && leaveForm.hasError('dateRangeInvalid')" class="text-danger">
+      To date must be greater than or equal to From date.
+    </mat-error>
+    </mat-form-field>
+  </div>
+  <mat-dialog-actions align="end">
+    <button  type="button" class="btn btn-danger me-2" (click)="cancel()">Cancel</button>
+    <button  class="btn btn-info"  type="submit">
+      {{leaveId>0?"Edit":"Add"}}
+    </button>
+  </mat-dialog-actions>
+
+</form>
+</div>
+
+
